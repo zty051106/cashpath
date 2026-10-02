@@ -1,0 +1,34 @@
+{
+  "schema_version": "draft-0.1",
+  "fictional": true,
+  "name": "电脑购买：现金、分期与推迟购买",
+  "currency": "CNY",
+  "start_date": "2026-10-01",
+  "display_horizon_days": 90,
+  "evaluation_horizon_months": 15,
+  "opening_balance_cents": 1000000,
+  "reserve_floor_cents": 300000,
+  "max_purchase_delay_days": 60,
+  "annual_effective_discount_rate": 0.02,
+  "same_day_order": "outflows_before_inflows",
+  "recurring_events": [
+    {"id": "salary", "label": "工资", "kind": "income", "amount_cents": 800000, "day_of_month": 25},
+    {"id": "rent", "label": "房租", "kind": "expense", "amount_cents": 300000, "day_of_month": 5},
+    {"id": "living", "label": "生活预算预留", "kind": "expense", "amount_cents": 200000, "day_of_month": 1}
+  ],
+  "purchase": {
+    "label": "电脑",
+    "preferred_date": "2026-10-02",
+    "cash_price_cents": 600000,
+    "plans": [
+      {"id": "cash", "kind": "upfront", "payment_cents": 600000},
+      {"id": "installment", "kind": "fixed_monthly", "down_payment_cents": 0, "number_of_payments": 12, "payment_cents": 53000, "first_payment_month_offset": 1, "fee_included_in_payment": true}
+    ]
+  },
+  "stress_scenarios": [
+    {"id": "baseline", "kind": "baseline"},
+    {"id": "salary_delay", "kind": "delay_event", "event_id": "salary", "occurrence_date": "2026-10-25", "delay_days": 14},
+    {"id": "income_drop", "kind": "scale_income", "event_id": "salary", "factor": 0.8, "start_date": "2026-11-01", "end_date": "2027-01-31"},
+    {"id": "unexpected_expense", "kind": "add_expense", "date": "2026-10-15", "amount_cents": 200000}
+  ]
+}
