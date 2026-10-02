@@ -1,0 +1,21 @@
+# MoonBit build output
+_build/
+target/
+
+# Frontend dependencies and output
+node_modules/
+dist/
+
+# Local credentials and personal input
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+data/private/
+local-inputs/
+
+# Editor and OS files
+.DS_Store
+Thumbs.db
+*.log
