@@ -1,0 +1,9 @@
+import {
+  "moonbitlang/core/math",
+  "moonbitlang/core/json",
+  "moonbitlang/core/strconv",
+}
+
+import {
+  "moonbitlang/core/debug",
+} for "wbtest"

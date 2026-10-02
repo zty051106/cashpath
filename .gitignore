@@ -1,6 +1,8 @@
 # MoonBit build output
 _build/
 target/
+.tools/
+.artifacts/
 
 # Frontend dependencies and output
 node_modules/
